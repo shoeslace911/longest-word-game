@@ -1,0 +1,15 @@
+<div class="container text-center mt-5">
+  <h1 class="">Find the longest word you can</h1>
+  <div class="d-flex justify-content-center mt-5">
+    <% @letters.each do |letter| %>
+      <h3 class="p-3 bg-warning border border-3 border-white w-25"><%= letter %></h3>
+    <%  end  %>
+  </div>
+  <p><%= @choices %></p>
+    <form action="score" method="post" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :grid, @letters %>
+      <input type="textbox" name="answer" id="longest-word" class="w-25 mt-4">
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</div>
